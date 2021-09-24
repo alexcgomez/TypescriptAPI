@@ -4,18 +4,22 @@ Application to build a CV from predesigned templates.
 
 # Getting Started
 
-1. To start the project:
+1. To build the project:
 
-`npm run start:prod`
+`npm run build`
 
-2. To start the development environment:
+2. To start the builded project:
 
-`npm run start:dev`
+`npm run start`
 
-3. To run the project linter:
+3. To start the development environment:
+
+`npm run dev`
+
+4. To run the project linter:
 
 `npm run lint`
 
-4. To start the project tests:
+5. To start the project tests:
 
 `npm run test`
