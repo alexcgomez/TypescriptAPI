@@ -1,0 +1,44 @@
+{
+  "name": "cvbuilder-api",
+  "version": "1.0.0",
+  "description": "Application to build a CV from predesigned templates.",
+  "main": "./src/server.ts",
+  "scripts": {
+    "lint": "eslint . --ext .ts",
+    "start:dev": "nodemon --config .nodemonrc.json src/server.ts",
+    "start:prod": "",
+    "test": ""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@ssh.dev.azure.com:v3/alexcgomez/CVBuilder/CVBuilderAPI"
+  },
+  "author": "Alex Cáceres Gómez",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/express": "^4.17.13",
+    "@types/morgan": "^1.9.3",
+    "@typescript-eslint/eslint-plugin": "^4.31.2",
+    "@typescript-eslint/parser": "^4.31.2",
+    "eslint": "^7.32.0",
+    "husky": "^7.0.2",
+    "lint-staged": "^11.1.2",
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.13",
+    "ts-node": "^10.2.1",
+    "typescript": "^4.4.3"
+  },
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "lint-staged": {
+    "src/**/*.{js,jsx}": [
+      "eslint . --ext .ts"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  }
+}
