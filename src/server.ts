@@ -21,6 +21,7 @@ class Server {
       console.log("====================================");
       console.log("Server listening on port", this.app.get("port"));
       console.log("====================================");
+      console.log("====================================");
     });
   }
 }
