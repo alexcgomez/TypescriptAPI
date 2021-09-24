@@ -33,12 +33,12 @@
   },
   "lint-staged": {
     "src/**/*.ts": [
-      "eslint . --ext .ts"
+      "npm run lint"
     ]
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged"
+      "pre-commit": "npm run lint"
     }
   }
 }
