@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import express from "express";
 import morgan from "morgan";
 
@@ -20,7 +21,6 @@ class Server {
     this.app.listen(this.app.get("port"), () => {
       console.log("====================================");
       console.log("Server listening on port", this.app.get("port"));
-      console.log("====================================");
       console.log("====================================");
     });
   }
