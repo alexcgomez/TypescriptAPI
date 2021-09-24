@@ -32,7 +32,7 @@
     "express": "^4.17.1"
   },
   "lint-staged": {
-    "src/**/*.{js,jsx}": [
+    "src/**/*.ts": [
       "eslint . --ext .ts"
     ]
   },
