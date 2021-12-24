@@ -12,7 +12,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@ssh.dev.azure.com:v3/alexcgomez/CVBuilder/CVBuilderAPI"
+    "url": "git@ssh.dev.azure.com:v3/alexcgomez/TypescriptAPI/TypescriptAPI"
   },
   "author": "Alex Cáceres Gómez",
   "license": "ISC",
