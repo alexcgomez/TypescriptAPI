@@ -1,7 +1,7 @@
 {
-  "name": "cvbuilder-api",
+  "name": "typescript-api",
   "version": "1.0.0",
-  "description": "Application to build a CV from predesigned templates.",
+  "description": "",
   "main": "./src/index.ts",
   "scripts": {
     "lint": "eslint . --ext .ts",
