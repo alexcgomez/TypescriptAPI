@@ -4,7 +4,7 @@ import morgan from "morgan";
 import envVars from "./envVars";
 import cors from "cors";
 import helmet from "helmet";
-import router from "../api/routes/V1/router";
+import router from "../api/routes/v1/router";
 
 export default class Server {
   app: express.Application;
@@ -22,7 +22,7 @@ export default class Server {
     // request logging. dev: console | production: file
     this.app.use(morgan(envVars.logs));
 
-    // parse body params and attache them to req.body
+    // parse body params and attach them to req.body
     this.app.use(express.json());
     this.app.use(express.urlencoded({ extended: true }));
 
@@ -31,9 +31,11 @@ export default class Server {
 
     // enable CORS - Cross Origin Resource Sharing
     this.app.use(cors());
+
+    this.setRouter();
   }
 
-  routes(): void {
+  setRouter(): void {
     // API V1 Routes
     this.app.use("/v1", router);
   }
