@@ -1,13 +1,5 @@
-import { BaseResponse } from './BaseResponse';
+import { SuccessResponse } from './HttpStandardResponses/SuccessResponse';
 
-export class HealthResponse implements BaseResponse {
-  public status: number;
-  public message: string;
-  public data: Record<string, unknown>;
+export class HealthResponse extends SuccessResponse {
 
-  constructor( status: number, message: string, data: Record<string, unknown> = {}) {
-    this.status = status;
-    this.message = message;
-    this.data = data;
-  }
 }
