@@ -4,7 +4,7 @@ import morgan from "morgan";
 import envVars from "./envVars";
 import cors from "cors";
 import helmet from "helmet";
-import router from "../api/routes/v1/router";
+import router from "../http/routes/v1/router";
 
 export default class Server {
   app: express.Application;
