@@ -37,7 +37,7 @@ export default class Server {
 
   setRouter(): void {
     // API V1 Routes
-    this.app.use("/v1", router);
+    this.app.use("/api/v1", router);
   }
 
   start(): void {
