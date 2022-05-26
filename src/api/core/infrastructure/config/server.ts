@@ -12,6 +12,7 @@ export default class Server {
   constructor() {
     this.app = express();
     this.config();
+    this.setRouter();
   }
 
   config(): void {
@@ -32,7 +33,6 @@ export default class Server {
     // enable CORS - Cross Origin Resource Sharing
     this.app.use(cors());
 
-    this.setRouter();
   }
 
   setRouter(): void {
