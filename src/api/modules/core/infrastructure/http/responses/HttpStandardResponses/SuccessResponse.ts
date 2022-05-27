@@ -1,14 +1,10 @@
-import { BaseResponse } from '../BaseResponse';
+import { HTTPResponse } from './HTTPResponse';
 
-export class SuccessResponse implements BaseResponse{
+export class SuccessResponse implements HTTPResponse{
 
-  public message: string;
-  public status: number;
-  public data: Record<string, unknown>;
+  constructor(public data: unknown = {},
+              public message: string = 'Success',
+              public status: number = 200) {
 
-  constructor(){
-    this.status = 200;
-    this.message = 'Success';
-    this.data = {};
   }
 }

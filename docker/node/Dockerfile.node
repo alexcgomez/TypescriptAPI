@@ -10,8 +10,4 @@ USER node
 
 WORKDIR /app
 
-COPY . .
-
-COPY ./docker/node/entrypoint.sh /entrypoint.sh
-
-ENTRYPOINT ["/entrypoint.sh"]
+COPY ./ .

@@ -2,12 +2,28 @@ version: '3.9'
 services:
   api:
     build:
-        context: .
-        dockerfile: ./docker/node/Dockerfile.node
-    container_name: api
+        context: ./
+        dockerfile: docker/node/Dockerfile.node
+    entrypoint: ['./docker/wait-for-it.sh', 'mysql:3306', '-t', '30', '--', './docker/node/entrypoint.sh']
+    container_name: 'API-Server'
     ports:
       - ${PORT}:${PORT}
     volumes:
       - .:/app
+  mysql:
+    build:
+      context: ./
+      dockerfile: docker/mysql/Dockerfile.mysql
+    container_name: 'API-Database'
+    volumes:
+      - ./database/data:/var/lib/mysql
+    ports:
+      - target: 3306
+        published: 3306
+        protocol: tcp
+        mode: host
     environment:
-      - PORT=${PORT:-3000}
+      MYSQL_RANDOM_ROOT_PASSWORD: 'yes'
+      MYSQL_DATABASE: ${DATABASE_NAME}
+      MYSQL_USER: ${DATABASE_USER}
+      MYSQL_PASSWORD: ${DATABASE_PASSWORD}

@@ -1,5 +1,9 @@
-import { SuccessResponse } from './HttpStandardResponses/SuccessResponse';
+export class HealthResource {
 
-export class HealthResponse extends SuccessResponse {
+  public status: boolean;
+
+  constructor(status: boolean) {
+    this.status = status;
+  }
 
 }

@@ -1,25 +1,24 @@
 /* eslint-disable no-console */
-import express from "express";
-import morgan from "morgan";
-import envVars from "./envVars";
-import cors from "cors";
-import helmet from "helmet";
-import router from "../http/routes/v1/router";
+import express from 'express';
+import morgan from 'morgan';
+import envVars from './envVars';
+import cors from 'cors';
+import helmet from 'helmet';
+import router from '../http/routes/v1/router';
 
 export default class Server {
   app: express.Application;
 
   constructor() {
     this.app = express();
-    this.config();
     this.setRouter();
+    this.config();
   }
 
   config(): void {
     this.app.set("port", envVars.port);
 
     /** Express Middlewares **/
-
     // request logging. dev: console | production: file
     this.app.use(morgan(envVars.logs));
 
@@ -37,6 +36,7 @@ export default class Server {
 
   setRouter(): void {
     // API V1 Routes
+    console.log("Setting API V1 Routes");
     this.app.use("/api/v1", router);
   }
 

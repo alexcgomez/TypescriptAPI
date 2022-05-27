@@ -1,0 +1,7 @@
+FROM mysql:5.7.29
+
+ARG USER_ID=1000
+ARG GROUP_ID=1000
+
+RUN usermod -u 1000 mysql \
+  && groupmod -g 1000 mysql
