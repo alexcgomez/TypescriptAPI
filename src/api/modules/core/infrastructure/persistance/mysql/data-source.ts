@@ -7,5 +7,7 @@ export const database = new DataSource({
   port: envVars.database.port,
   username: envVars.database.user,
   password: envVars.database.password,
-  database: envVars.database.name
+  database: envVars.database.name,
+  synchronize: true,
+  entities: ['**/entities/*.ts']
 });

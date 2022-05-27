@@ -1,6 +1,6 @@
 import { HTTPResponse } from '../responses/HttpStandardResponses/HTTPResponse';
 import { SuccessResponse } from '../responses/HttpStandardResponses/SuccessResponse';
-import { HealthResource } from '../responses/HealthResponse';
+import { HealthResource } from '../responses/HealthResource';
 
 class HealthController {
 
