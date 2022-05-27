@@ -5,6 +5,7 @@ import envVars from './envVars';
 import cors from 'cors';
 import helmet from 'helmet';
 import router from '../http/routes/v1/router';
+import { database } from '../persistance/mysql/data-source';
 
 export default class Server {
   app: express.Application;
@@ -16,7 +17,11 @@ export default class Server {
   }
 
   config(): void {
+    // Environment Variables
     this.app.set("port", envVars.port);
+
+    //Database connection
+    database.initialize();
 
     /** Express Middlewares **/
     // request logging. dev: console | production: file
@@ -36,7 +41,6 @@ export default class Server {
 
   setRouter(): void {
     // API V1 Routes
-    console.log("Setting API V1 Routes");
     this.app.use("/api/v1", router);
   }
 

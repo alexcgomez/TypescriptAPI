@@ -9,8 +9,6 @@ const router: Router = express.Router();
 router.get(
   '/health',
   (req: Request, res: Response) => {
-    // eslint-disable-next-line no-console
-    console.log('GET /health');
     res.send(healthController.getHealth());
   }
 );
