@@ -3,7 +3,7 @@ services:
   api:
     build:
         context: .
-        dockerfile: docker/node/Dockerfile
+        dockerfile: ./docker/node/Dockerfile.node
     container_name: api
     ports:
       - ${PORT}:${PORT}

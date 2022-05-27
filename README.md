@@ -1,25 +1,35 @@
-# Introduction
 
-Application to build a CV from predesigned templates.
+
+# API Restful Boilerplate
+![CodeBadge](https://img.shields.io/badge/TypeScript-4.7.2-black?logo=typescript)
+![CodeBadge](https://img.shields.io/badge/Node-14.9.1-black?logo=node.js)
+![BuildBadge](https://img.shields.io/badge/Build-passing-green)
+
 
 # Getting Started
 
-1. To build the project:
+API Documentation: https://documenter.getpostman.com/view/12296188/Uz5Aterc
+
+## Start Docker Environment
+
+`.bin/start`
+
+### Build the project:
 
 `npm run build`
 
-2. To start the builded project:
+### Start the builded project:
 
 `npm run start`
 
-3. To start the development environment:
+### Start the development environment:
 
 `npm run dev`
 
-4. To run the project linter:
+### Run the project linter:
 
 `npm run lint`
 
-5. To start the project tests:
+### Start the project tests:
 
 `npm run test`

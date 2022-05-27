@@ -1,0 +1,28 @@
+#!/bin/bash
+
+####################
+###   Binaries   ###
+####################
+DOCKER_COMPOSE=$(which docker-compose)
+####################
+
+PROJECT_PATH="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && cd .. && pwd )"
+export USER_ID=${UID}
+export GROUP_ID=${UID}
+
+if [ ! -f ${PROJECT_PATH}/.env ]; then
+  cp ${PROJECT_PATH}/.env.example ${PROJECT_PATH}/.env
+  echo -e "No .env file present.\nCopying .env.example to .env"
+fi
+
+while read line; do export "$line";
+done < <(cat ${PROJECT_PATH}/.env | grep -v "#" | grep -v "^$")
+
+echo "[$(date +"%Y-%m-%d %T")] Stopping lingering containers..."
+
+${DOCKER_COMPOSE} -f "${PROJECT_PATH}"/docker-compose.yml down --remove-orphans
+
+echo "[$(date +"%Y-%m-%d %T")] Starting the containers..."
+
+${DOCKER_COMPOSE} -f "${PROJECT_PATH}"/docker-compose.yml up -d
+${DOCKER_COMPOSE} -f "${PROJECT_PATH}"/docker-compose.yml logs -f
