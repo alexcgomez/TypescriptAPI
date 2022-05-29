@@ -36,7 +36,7 @@ API Documentation: https://documenter.getpostman.com/view/12296188/Uz5Aterc
 
 ## Request Flow Architecture
 
-```mermaid
+:::mermaid
     stateDiagram-v2
     
     Infrastructure
@@ -67,5 +67,4 @@ API Documentation: https://documenter.getpostman.com/view/12296188/Uz5Aterc
  
   State4 --> State5
 
-
-```
+:::
