@@ -1,7 +1,7 @@
 import { DataSource } from 'typeorm';
 import envVars from '../../config/envVars';
 
-export const database = new DataSource({
+export const mysqlConnection: DataSource = new DataSource({
   type: "mysql",
   host: envVars.database.host,
   port: envVars.database.port,

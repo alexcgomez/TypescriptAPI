@@ -1,12 +1,15 @@
 import { HTTPResponse } from '../responses/HttpStandardResponses/HTTPResponse';
 import { SuccessResponse } from '../responses/HttpStandardResponses/SuccessResponse';
-import { User } from '../../../domain/entities/User';
-import { database } from '../../persistance/mysql/data-source';
 import { UserResource } from '../responses/UserResource';
+import { GetUsersUseCase } from '../../../application/useCases/GetUsersUseCase';
 
 class UserController {
-   async getUsers(): Promise<HTTPResponse>  {
-    const users = await database.getRepository(User).find();
+
+  constructor(private getUsersUseCase: GetUsersUseCase) {
+  }
+
+  getUsers(): HTTPResponse {
+    const users = this.getUsersUseCase.execute();
     return new SuccessResponse(users.map(UserResource.fromEntity));
   }
 }

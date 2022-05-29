@@ -1,9 +1,8 @@
-import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
+import { Column, Entity } from 'typeorm';
+import { EntityBase } from './EntityBase';
 
 @Entity()
-export class User {
-  @PrimaryGeneratedColumn()
-  id: number;
+export class User extends EntityBase {
 
   @Column()
   firstName: string;
