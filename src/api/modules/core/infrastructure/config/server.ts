@@ -5,7 +5,7 @@ import envVars from './envVars';
 import cors from 'cors';
 import helmet from 'helmet';
 import router from '../http/routes/v1/router';
-import { MysqlConnection } from '../persistance/mysql/data-source';
+import { mysqlConnection } from '../persistance/mysql/data-source';
 
 export default class Server {
   app: express.Application;
@@ -21,7 +21,7 @@ export default class Server {
     this.app.set("port", envVars.port);
 
     //Database connection
-    MysqlConnection.initialize();
+    mysqlConnection.initialize();
 
     /** Express Middlewares **/
     // request logging. dev: console | production: file

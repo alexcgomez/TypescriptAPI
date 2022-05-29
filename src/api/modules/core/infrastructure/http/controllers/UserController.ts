@@ -2,6 +2,7 @@ import { HTTPResponse } from '../responses/HttpStandardResponses/HTTPResponse';
 import { SuccessResponse } from '../responses/HttpStandardResponses/SuccessResponse';
 import { UserResource } from '../responses/UserResource';
 import { GetUsersUseCase } from '../../../application/useCases/GetUsersUseCase';
+import { MysqlUserRepository } from '../../persistance/mysql/repositories/MysqlUserRepository';
 
 class UserController {
 
@@ -14,4 +15,4 @@ class UserController {
   }
 }
 
-export const userController = new UserController();
+export const userController = new UserController(new GetUsersUseCase(new MysqlUserRepository()));

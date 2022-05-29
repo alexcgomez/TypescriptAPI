@@ -1,17 +1,21 @@
-import { Repository } from '../../../../domain/repositories/Repository';
-import { EntityBase } from '../../../../domain/entities/EntityBase';
+import { BaseRepository } from '../../../../domain/repositories/BaseRepository';
 import { mysqlConnection } from '../data-source';
-import { Entity } from 'typeorm';
+import { DataSource, EntityTarget, Repository } from 'typeorm';
 
-export class MysqlRepository<T extends EntityBase> implements Repository<T> {
+export class MysqlRepository<T> implements BaseRepository<T> {
 
-  private repository;
+  public repository: Repository<T>;
+  private connection: DataSource = mysqlConnection;
+  private entity: EntityTarget<T>;
 
   constructor() {
-    this.repository = mysqlConnection.getRepository(T as Entity);
+    this.repository = this.connection.getRepository(this.entity);
   }
 
+  // @ts-ignore
   find() {
-    return [];
+    return this.repository.find().then(result => {
+      return result;
+    });
   }
 }

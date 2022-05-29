@@ -1,6 +1,6 @@
-import { Repository } from './Repository';
+import { BaseRepository } from './BaseRepository';
 import { User } from '../entities/User';
 
-export interface UserRepository extends Repository<User>{
+export interface UserRepository extends BaseRepository<User>{
   findByFirstName(firstName: string): Promise<User[]>;
 }
