@@ -12,10 +12,7 @@ export class MysqlRepository<T> implements BaseRepository<T> {
     this.repository = this.connection.getRepository(this.entity);
   }
 
-  // @ts-ignore
-  find() {
-    return this.repository.find().then(result => {
-      return result;
-    });
+  find(): Promise<T[]> {
+    return this.repository.find();
   }
 }

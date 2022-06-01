@@ -1,11 +1,12 @@
 import { UserRepository } from '../../domain/repositories/UserRepository';
+import { User } from '../../domain/entities/User';
 
 export class GetUsersUseCase {
   constructor(
     private userRepository: UserRepository,
   ) {}
 
-  execute() {
-    return this.userRepository.find();
+  async execute(): Promise<User[]> {
+    return await this.userRepository.find();
   }
 }

@@ -1,3 +1,3 @@
 export interface BaseRepository<T> {
-  find(): T[];
+  find(): Promise<T[]>;
 }
