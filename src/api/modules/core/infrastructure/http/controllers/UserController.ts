@@ -9,8 +9,8 @@ class UserController {
   constructor(private getUsersUseCase: GetUsersUseCase) {
   }
 
-  getUsers(): HTTPResponse {
-    const users = this.getUsersUseCase.execute();
+  async getUsers(): Promise<HTTPResponse> {
+    const users = await this.getUsersUseCase.execute();
     return new SuccessResponse(users.map(UserResource.fromEntity));
   }
 }

@@ -12,8 +12,8 @@ export default class Server {
 
   constructor() {
     this.app = express();
-    this.setRouter();
     this.config();
+    this.setRouter();
   }
 
   config(): void {

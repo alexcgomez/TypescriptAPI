@@ -1,5 +1,6 @@
 import { DataSource } from 'typeorm';
 import envVars from '../../config/envVars';
+import { User } from '../../../domain/entities/User';
 
 export const mysqlConnection: DataSource = new DataSource({
   type: "mysql",
@@ -9,5 +10,5 @@ export const mysqlConnection: DataSource = new DataSource({
   password: envVars.database.password,
   database: envVars.database.name,
   synchronize: true,
-  entities: ['**/entities/*.ts']
+  entities: [User]
 });
