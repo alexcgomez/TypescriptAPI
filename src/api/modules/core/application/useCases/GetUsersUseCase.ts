@@ -6,7 +6,7 @@ export class GetUsersUseCase {
     private userRepository: UserRepository,
   ) {}
 
-  execute(): Promise<User[]> {
-    return this.userRepository.find();
+  async execute(): Promise<User[]> {
+    return await this.userRepository.find();
   }
 }
